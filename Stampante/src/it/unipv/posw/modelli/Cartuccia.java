@@ -12,28 +12,28 @@ public class Cartuccia extends ColoreClass{
 		super.setColore(colore);
 	}
 	
-	public int sottraiInchiostro(double inchiostroUsato) {
+	public double sottraiInchiostro(double inchiostroUsato) {
 		
 		double result = 0;
 		double percentualeInchiostro;
 		
 		if (super.red > 0) {
 			result = red - inchiostroUsato;
-			red = (int)result;	
+			red = result;	
 		}
 		
 		if (super.green > 0) {
 			result = green - inchiostroUsato;
-			green = (int)result;
+			green = result;
 		}
 		
 		if (super.blue > 0) {
 			result = blue - inchiostroUsato;
-			blue = (int)result;
+			blue = result;
 		}
 		
 		percentualeInchiostro = result / UNO_PERCENTO;
-		return (int)percentualeInchiostro;
+		return percentualeInchiostro;
 	}
 	
 

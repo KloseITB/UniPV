@@ -13,18 +13,15 @@ public class ImmagineVettoriale {
 
 		for (int n = 0; formeImmagineVettoriale.length > n; n++) {
 			
-			double risultato = 0;
-			risultato = formeImmagineVettoriale[n].calcolaArea();
-			
 			switch (formeImmagineVettoriale[n].coloreScelto) {
 			case RED: 
-				redUsato += risultato;
+				redUsato += formeImmagineVettoriale[n].calcolaArea();
 				break;
 			case GREEN:
-				greenUsato += risultato;
+				greenUsato += formeImmagineVettoriale[n].calcolaArea();
 				break;
 			case BLUE:
-				blueUsato += risultato;
+				blueUsato += formeImmagineVettoriale[n].calcolaArea();
 				break;
 			default:
 				break;
@@ -38,8 +35,8 @@ public class ImmagineVettoriale {
 		return formeImmagineVettoriale;
 	}
 	
-	public double[] getValoriRGB() {
-		double[] valoriRGB = {redUsato, greenUsato, blueUsato};
+	public int[] getValoriRGB() {
+		int[] valoriRGB = {(int)redUsato, (int)greenUsato, (int)blueUsato};
 		return valoriRGB;
 	}
 }
