@@ -5,8 +5,9 @@ public class Cerchio extends Forme {
 	private double raggio;
 	private String nomeForma = "Cerchio";
 	
-	public Cerchio(Colore colore) {
+	public Cerchio(Colore colore, double raggio) {
 		super(colore);
+		this.raggio = raggio;
 	}
 
 	@Override

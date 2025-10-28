@@ -18,19 +18,22 @@ public class Stampante extends Cartuccia {
 		
 	}
 	
-	public void Stampa(ImmagineVettoriale immagineVettoriale) {
+	public void stampa(ImmagineVettoriale immagineVettoriale) {
 		
 		Forme[] formeUsate = immagineVettoriale.getForme();
-		for (int n = 0; formeUsate.length > n; n++) {
-			System.out.print("Ho stampato un " + formeUsate[n].getNomeForma() + "\n");
-		}
+//		for (int n = 0; formeUsate.length > n; n++) {
+//			System.out.print("Ho stampato un " + formeUsate[n].getNomeForma() + "\n");
+//		}
 		
 		immagineVettoriale.calcolaInchiostroUsato();
-		double[] ValoriRGB = immagineVettoriale.getValoriRGB();
-		System.out.print("Inchiostro usato: \n");
-		for(int n = 0; ValoriRGB.length > n; n++){
-			System.out.print(ValoriRGB[n] + "\n");
-		}
+		int[] ValoriRGB = immagineVettoriale.getValoriRGB();
+		
+		System.out.print("Immagine stampata \n" + "Inchiostro rimasto: \n" +
+				(int)cartucciaRossa.sottraiInchiostro(ValoriRGB[0])+ "%\n" +
+				(int)cartucciaVerde.sottraiInchiostro(ValoriRGB[1])+ "%\n" +
+				(int)cartucciaBlu.sottraiInchiostro(ValoriRGB[2]) + "%\n"
+		);
+		
 		
 	}
 	
@@ -38,15 +41,15 @@ public class Stampante extends Cartuccia {
 	
 	public static void main(String[] args) {
 		
-		Cerchio faccia = new Cerchio(Colore.RED);
-		Quadrato orecchioSx = new Quadrato(Colore.GREEN); 
-		Quadrato orecchioDx = new Quadrato(Colore.GREEN);
+		Cerchio faccia = new Cerchio(Colore.RED, 4);
+		Quadrato orecchioSx = new Quadrato(Colore.GREEN, 2); 
+		Quadrato orecchioDx = new Quadrato(Colore.GREEN, 2);
 		
 		Forme[] formeUtilizzate = {faccia, orecchioSx, orecchioDx};
 		
 		ImmagineVettoriale logoGatito = new ImmagineVettoriale(formeUtilizzate);
 		Stampante stampante = new Stampante();
 		
-		stampante.Stampa(logoGatito);
+		stampante.stampa(logoGatito);
 	}
 }

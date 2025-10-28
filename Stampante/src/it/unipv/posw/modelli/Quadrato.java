@@ -5,8 +5,9 @@ public class Quadrato extends Forme {
 	private double lato;
 	private String nomeForma = "Quadrato";
 	
-	public Quadrato(Colore colore) {
+	public Quadrato(Colore colore, double lato) {
 		super(colore);
+		this.lato = lato;
 	}
 
 	@Override

@@ -2,7 +2,7 @@ package it.unipv.posw.modelli;
 
 public class ColoreClass {
 	public final int MAX_VALUE = 255;
-	protected int red, green, blue = 0;
+	protected double red, green, blue = 0;
 	protected Colore coloreScelto;
 	
 	public void setColore(Colore coloreScelto) {
