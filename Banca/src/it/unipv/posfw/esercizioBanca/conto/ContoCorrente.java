@@ -3,12 +3,14 @@ package it.unipv.posfw.EsercizioBanca.conto;
 import it.unipv.posfw.EsercizioBanca.utente.Persona;
 
 public class ContoCorrente extends Conto{
-
+	
+	// Costruttori
 	public ContoCorrente(Persona proprietario) {
 		super(proprietario);
 
 	}
-
+	
+	// Metodi
 	@Override
 	public void deposita(double cifra) {
 		setSaldo(getSaldo() + cifra);
@@ -16,14 +18,16 @@ public class ContoCorrente extends Conto{
 	
 	@Override
 	public void stampaDettagli() {
-		System.out.printf("%.2f", getSaldo());
+		System.out.printf("Il tuo saldo è di: %.2f euro\n", getSaldo());
 	}
 	
 	public void preleva(double cifra) {
-		if (getSaldo() >= cifra)
-		setSaldo(getSaldo() - cifra);
+		if (getSaldo() >= cifra) {
+			setSaldo(getSaldo() - cifra);
+			System.out.println("Operazione avvenuta con successo\n");			
+		}
 		else
-		System.out.println("Non disponi di abbastanza liquidità. Operazione abortita. \n");
+		System.out.println("ERRORE: Non disponi di abbastanza liquidità. Operazione abortita.\n");
 	}
 
 }

@@ -5,34 +5,28 @@ import it.unipv.posfw.EsercizioBanca.utente.Persona;
 
 public abstract class Conto {
 	
+	// Parametri
 	private String radiceIBanBanca;
 	private String iban = null;
 	private Persona proprietario;
 	private double saldo;
-	private boolean isContoWeb = false;
 	
+	// Costruttori
 	public Conto(Persona proprietario) {
 		this.proprietario = proprietario;
 		saldo = 0;
 	}
 	
+	// Metodi
 	public abstract void deposita(double cifra);
 	
 	public abstract void stampaDettagli();
 	
-	public void setIsContoWeb(boolean isContoWeb) {
-		this.isContoWeb = isContoWeb;
-	}
-	
-	public boolean getIsContoWeb() {
-		return isContoWeb;
-	}
-	
-	public double getSaldo() {
+	protected double getSaldo() {
 		return saldo;
 	}
 
-	public void setSaldo(double saldo) {
+	protected void setSaldo(double saldo) {
 		this.saldo = saldo;
 	}
 
