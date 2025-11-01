@@ -1,6 +1,6 @@
-package it.unipv.posfw.EsercizioBanca.conto;
+package it.unipv.posfw.esercizioBanca.conto;
 
-import it.unipv.posfw.EsercizioBanca.utente.Persona;
+import it.unipv.posfw.esercizioBanca.utente.Persona;
 
 public class ContoCorrente extends Conto{
 	

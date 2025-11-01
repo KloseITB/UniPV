@@ -1,4 +1,4 @@
-package it.unipv.posfw.EsercizioBanca.conto;
+package it.unipv.posfw.esercizioBanca.conto;
 
 public enum TipoOperazione {
 	DEPOSITO,

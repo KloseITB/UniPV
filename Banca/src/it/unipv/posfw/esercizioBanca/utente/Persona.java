@@ -1,6 +1,6 @@
-package it.unipv.posfw.EsercizioBanca.utente;
+package it.unipv.posfw.esercizioBanca.utente;
 
-import it.unipv.posfw.EsercizioBanca.conto.*;
+import it.unipv.posfw.esercizioBanca.conto.*;
 
 public class Persona {
 	

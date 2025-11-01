@@ -1,6 +1,6 @@
-package it.unipv.posfw.EsercizioBanca.conto;
+package it.unipv.posfw.esercizioBanca.conto;
 
-import it.unipv.posfw.EsercizioBanca.utente.Persona;
+import it.unipv.posfw.esercizioBanca.utente.Persona;
 
 public class ContoDeposito extends Conto{
 	
@@ -12,14 +12,13 @@ public class ContoDeposito extends Conto{
 	// Metodi
 	@Override
 	public void deposita(double cifra) {
-		// TODO Auto-generated method stub
+		setSaldo(getSaldo() + cifra);
 		
 	}
 
 	@Override
 	public void stampaDettagli() {
-		// TODO Auto-generated method stub
-		
+		System.out.printf("Il tuo saldo è di: %.2f euro\n", getSaldo());
 	}
 
 }

@@ -1,7 +1,7 @@
-package it.unipv.posfw.EsercizioBanca.conto;
+package it.unipv.posfw.esercizioBanca.conto;
 
 import java.util.concurrent.ThreadLocalRandom;
-import it.unipv.posfw.EsercizioBanca.utente.Persona;
+import it.unipv.posfw.esercizioBanca.utente.Persona;
 
 public abstract class Conto {
 	

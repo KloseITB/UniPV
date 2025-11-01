@@ -1,10 +1,10 @@
-package it.unipv.posfw.EsercizioBanca.banca;
+package it.unipv.posfw.esercizioBanca.banca;
 
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Scanner;
-import it.unipv.posfw.EsercizioBanca.conto.*;
-import it.unipv.posfw.EsercizioBanca.utente.Persona;
+import it.unipv.posfw.esercizioBanca.conto.*;
+import it.unipv.posfw.esercizioBanca.utente.Persona;
 
 public class Banca {
 	
@@ -82,6 +82,20 @@ public class Banca {
 		}
 		else if(conto instanceof ContoDeposito) {
 			ContoDeposito contoDeposito = (ContoDeposito) conto;
+			
+			if(tipoOperazione == TipoOperazione.STAMPA_DETTAGLI) {			
+				contoDeposito.stampaDettagli();
+			}
+			
+			if(tipoOperazione == TipoOperazione.DEPOSITO) {
+				System.out.println("Scrivere la cifra da voler depositare");
+				double cifra = Double.parseDouble(input.nextLine());
+				contoDeposito.deposita(cifra);
+			}
+			
+			if(tipoOperazione == TipoOperazione.PRELIEVO) {
+				System.out.println("ERRORE: impossibile prelevare da un conto deposito. Operazione annullata.");
+			}
 		}
 		else {
 			System.out.println("ERRORE: tipo di operazione non valida.\n");
@@ -92,15 +106,14 @@ public class Banca {
 		return radiceIban;
 	}
 	
+	// Main method
 	public static void main(String[] args) {
 		
 		Banca GiacominoBank = new Banca("GiacominoBank", 10, "01234");
 		Persona giacomoKozak = new Persona("Giacomo Sbrindullo", "Kozak", "Via Cristoforo Colombo 562", "KZKGCM04R03G388I");
-		GiacominoBank.aggiungiConto(new ContoWeb(giacomoKozak, "skibidi"));
-		GiacominoBank.operazione(giacomoKozak, TipoOperazione.DEPOSITO);
-		GiacominoBank.operazione(giacomoKozak, TipoOperazione.STAMPA_DETTAGLI);
+		GiacominoBank.aggiungiConto(new ContoDeposito(giacomoKozak));
+		System.out.println(GiacominoBank.contiHashMap.get(giacomoKozak).getIban());
 		GiacominoBank.operazione(giacomoKozak, TipoOperazione.PRELIEVO);
-		GiacominoBank.operazione(giacomoKozak, TipoOperazione.STAMPA_DETTAGLI);
 	}
 
 
